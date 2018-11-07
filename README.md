@@ -39,6 +39,16 @@ And replace `// TODO: Add library names here...` with:
 "UserAnalytics"
 ```
 
+## Running Tests
+
+Currently the test is a "smoke test" (hits an actual API over the network). The intent is to replace this with stubbed tests, time permitting.
+
+```sh
+export USER_ANALYTICS_TOKEN='XXXX'
+export USER_ANALYTICS_ENDPOINT='https://some.host'
+swift test
+```
+
 ## Usage
 
 ```swift
@@ -73,3 +83,10 @@ userAnalytics.post(streamName: "UserAnalytics", data: data) { data, error in
     print(dictionary)
 }
 ```
+
+## TODO
+
+* Add the "list streams" API action (not critical for general usage)
+* Add the "describe stream" API action (not critical for general usage)
+* Replace the live test with a stubbed one
+* Add an additional script for live testing

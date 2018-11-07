@@ -1,16 +1,16 @@
 import Foundation
 
-enum UserAnalyticsError: Error {
+public enum UserAnalyticsError: Error {
     case invalidBody
     case serviceProblem(_ error: Error)
     case badStatusCode(_ statusCode: Int)
 }
 
-class UserAnalytics {
+public class UserAnalytics {
     let token: String
     let endpoint: String
 
-    init(token: String, endpoint: String) {
+    public init(token: String, endpoint: String) {
         self.token = token
         self.endpoint = endpoint
     }
@@ -39,7 +39,7 @@ class UserAnalytics {
         }.resume()
     }
 
-    static func toAthenaTimestamp(_ date: Date) -> String {
+    public static func toAthenaTimestamp(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd KK:mm:ss.SSS"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
